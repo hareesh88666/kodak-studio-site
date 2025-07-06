@@ -167,4 +167,32 @@ footer {
 .pricing-table tr:nth-child(even) {
   background-color: #222;
 }
+.testimonials {
+  padding: 2rem;
+  background: #1a1a1a;
+  margin: 1rem;
+  border-radius: 12px;
+  box-shadow: 0 0 10px #333;
+  text-align: center;
+}
+
+.testimonials h2 {
+  color: gold;
+  margin-bottom: 1.5rem;
+}
+
+.testimonial-card {
+  background: #222;
+  color: #eee;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border-radius: 10px;
+  border-left: 4px solid gold;
+}
+
+.testimonial-card h4 {
+  margin-top: 0.5rem;
+  color: #ccc;
+  font-style: italic;
+}
 
