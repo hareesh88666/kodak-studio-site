@@ -71,7 +71,6 @@
     </form>
   </section>
 
-  <!-- ✅ GALLERY SECTION -->
   <section class="gallery">
     <h2>Gallery</h2>
     <div class="gallery-grid">
@@ -100,7 +99,6 @@
     <p>© 2025 Kodak Studio</p>
   </footer>
 
-  <!-- ✅ ALL JS -->
   <script>
     const priceMap = {
       "6x4": 100,
@@ -112,16 +110,19 @@
     const frameTypeSelect = document.getElementById("frameType");
     const priceDisplay = document.getElementById("framePrice");
 
+    // Update price on size change
     frameSizeSelect.addEventListener("change", function () {
       const size = this.value;
       priceDisplay.textContent = priceMap[size];
       document.getElementById("selectedFrameSize").value = size;
     });
 
+    // Update selected frame type on change
     frameTypeSelect.addEventListener("change", function () {
       document.getElementById("selectedFrameType").value = this.value;
     });
 
+    // Alert on form submit
     document.getElementById("frameForm").addEventListener("submit", function (e) {
       e.preventDefault();
       const type = frameTypeSelect.value;
@@ -130,11 +131,17 @@
       alert(`You selected ${type} frame of size ${size}. Price: ₹${price}`);
     });
 
-    // Lightbox Functions
+    // Lightbox functions
     function openLightbox(src) {
       document.getElementById("lightbox-img").src = src;
       document.getElementById("lightbox").classList.add("active");
     }
+
     function closeLightbox() {
       document.getElementById("lightbox").classList.remove("active");
     }
+
+    // Set default values in form on load
+    window.onload = () => {
+      document.getElementById("selectedFrameType").value = frameTypeSelect.value;
+      document.getElementById("selectedFrameSize").value = frameSizeSelect.value;
