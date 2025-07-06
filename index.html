@@ -179,6 +179,14 @@
     document.getElementById("nav-links").classList.toggle("active");
   });
 </script>
+<script>
+  const menuToggle = document.getElementById("mobile-menu");
+  const navLinks = document.querySelector(".nav-links");
+
+  menuToggle.addEventListener("click", () => {
+    navLinks.classList.toggle("active");
+  });
+</script>
 
 <!-- ✅ WhatsApp Floating Button -->
 <a href="https://wa.me/919611047767" class="whatsapp-float" target="_blank">
