@@ -49,7 +49,6 @@
     </form>
   </section>
 
-  <!-- ✅ Inquiry/Order Form -->
   <section class="inquiry-form">
     <h2>Send Inquiry / Place Order</h2>
     <form action="https://formspree.io/f/xqkrzglz" method="POST">
@@ -72,6 +71,36 @@
     </form>
   </section>
 
+  <!-- ✅ GALLERY SECTION -->
+  <section class="gallery">
+    <h2>Gallery</h2>
+    <div class="gallery-grid">
+      <img src="images/gallery1.jpg" alt="Gallery 1" onclick="openLightbox(this.src)">
+      <img src="images/gallery2.jpg" alt="Gallery 2" onclick="openLightbox(this.src)">
+      <img src="images/gallery3.jpg" alt="Gallery 3" onclick="openLightbox(this.src)">
+      <img src="images/gallery4.jpg" alt="Gallery 4" onclick="openLightbox(this.src)">
+      <img src="images/gallery5.jpg" alt="Gallery 5" onclick="openLightbox(this.src)">
+      <img src="images/gallery6.jpg" alt="Gallery 6" onclick="openLightbox(this.src)">
+      <img src="images/gallery7.jpg" alt="Gallery 7" onclick="openLightbox(this.src)">
+      <img src="images/gallery8.jpg" alt="Gallery 8" onclick="openLightbox(this.src)">
+    </div>
+
+    <div id="lightbox" class="lightbox" onclick="closeLightbox()">
+      <img id="lightbox-img" src="" alt="Full Image">
+    </div>
+  </section>
+
+  <section class="location">
+    <h3>Visit Us</h3>
+    <p>Kodak Studio,<br />Hesaraghatta, opposite to Sapthagiri Hospital,<br />Bengaluru – 560088</p>
+  </section>
+
+  <footer>
+    <p>Contact: +91 9611047767 | Email: hareeshkumar.9356@gmail.com</p>
+    <p>© 2025 Kodak Studio</p>
+  </footer>
+
+  <!-- ✅ ALL JS -->
   <script>
     const priceMap = {
       "6x4": 100,
@@ -101,19 +130,11 @@
       alert(`You selected ${type} frame of size ${size}. Price: ₹${price}`);
     });
 
-    // Set default values in inquiry form on page load
-    document.getElementById("selectedFrameType").value = frameTypeSelect.value;
-    document.getElementById("selectedFrameSize").value = frameSizeSelect.value;
-  </script>
-
-  <section class="location">
-    <h3>Visit Us</h3>
-    <p>Kodak Studio,<br />Hesaraghatta, opposite to Sapthagiri Hospital,<br />Bengaluru – 560088</p>
-  </section>
-
-  <footer>
-    <p>Contact: +91 9611047767 | Email: hareeshkumar.9356@gmail.com</p>
-    <p>© 2025 Kodak Studio</p>
-  </footer>
-</body>
-</html>
+    // Lightbox Functions
+    function openLightbox(src) {
+      document.getElementById("lightbox-img").src = src;
+      document.getElementById("lightbox").classList.add("active");
+    }
+    function closeLightbox() {
+      document.getElementById("lightbox").classList.remove("active");
+    }
