@@ -21,55 +21,90 @@
       photography, printing, and custom frame services.
     </p>
   </section>
-<section class="frame-selector">
-  <h2>Select Your Frame</h2>
-  <form id="frameForm">
-    <label for="frameType">Frame Type:</label>
-    <select id="frameType">
-      <option value="wedding">Wedding</option>
-      <option value="baby">Baby/Kids</option>
-      <option value="canvas">Canvas Print</option>
-      <option value="acrylic">Acrylic Wall</option>
-      <option value="passport">Passport Photo</option>
-    </select>
 
-    <label for="frameSize">Size:</label>
-    <select id="frameSize">
-      <option value="6x4">6x4</option>
-      <option value="8x12">8x12</option>
-      <option value="12x18">12x18</option>
-    </select>
-    <div class="price-display">
-      Price: ₹<span id="framePrice">100</span>
-    </div>
+  <section class="frame-selector">
+    <h2>Select Your Frame</h2>
+    <form id="frameForm">
+      <label for="frameType">Frame Type:</label>
+      <select id="frameType">
+        <option value="wedding">Wedding</option>
+        <option value="baby">Baby/Kids</option>
+        <option value="canvas">Canvas Print</option>
+        <option value="acrylic">Acrylic Wall</option>
+        <option value="passport">Passport Photo</option>
+      </select>
 
-    <button type="submit">Order Now</button>
-  </form>
-</section>
+      <label for="frameSize">Size:</label>
+      <select id="frameSize">
+        <option value="6x4">6x4</option>
+        <option value="8x12">8x12</option>
+        <option value="12x18">12x18</option>
+      </select>
 
-<script>
-  const priceMap = {
-    "6x4": 100,
-    "8x12": 200,
-    "12x18": 350
-  };
+      <div class="price-display">
+        Price: ₹<span id="framePrice">100</span>
+      </div>
 
-  const frameSizeSelect = document.getElementById("frameSize");
-  const priceDisplay = document.getElementById("framePrice");
+      <button type="submit">Order Now</button>
+    </form>
+  </section>
 
-  frameSizeSelect.addEventListener("change", function () {
-    const size = this.value;
-    priceDisplay.textContent = priceMap[size];
-  });
+  <!-- ✅ Inquiry/Order Form -->
+  <section class="inquiry-form">
+    <h2>Send Inquiry / Place Order</h2>
+    <form action="https://formspree.io/f/xqkrzglz" method="POST">
+      <label for="name">Name:</label>
+      <input type="text" name="name" required>
 
-  document.getElementById("frameForm").addEventListener("submit", function (e) {
-    e.preventDefault();
-    const type = document.getElementById("frameType").value;
-    const size = frameSizeSelect.value;
-    const price = priceMap[size];
-    alert(`You selected ${type} frame of size ${size}. Price: ₹${price}`);
-  });
-</script>
+      <label for="phone">Phone Number:</label>
+      <input type="tel" name="phone" required>
+
+      <label for="frameTypeInput">Selected Frame Type:</label>
+      <input type="text" name="frameType" id="selectedFrameType" readonly>
+
+      <label for="frameSizeInput">Selected Size:</label>
+      <input type="text" name="frameSize" id="selectedFrameSize" readonly>
+
+      <label for="message">Message (Optional):</label>
+      <textarea name="message"></textarea>
+
+      <button type="submit">Submit Inquiry</button>
+    </form>
+  </section>
+
+  <script>
+    const priceMap = {
+      "6x4": 100,
+      "8x12": 200,
+      "12x18": 350
+    };
+
+    const frameSizeSelect = document.getElementById("frameSize");
+    const frameTypeSelect = document.getElementById("frameType");
+    const priceDisplay = document.getElementById("framePrice");
+
+    frameSizeSelect.addEventListener("change", function () {
+      const size = this.value;
+      priceDisplay.textContent = priceMap[size];
+      document.getElementById("selectedFrameSize").value = size;
+    });
+
+    frameTypeSelect.addEventListener("change", function () {
+      document.getElementById("selectedFrameType").value = this.value;
+    });
+
+    document.getElementById("frameForm").addEventListener("submit", function (e) {
+      e.preventDefault();
+      const type = frameTypeSelect.value;
+      const size = frameSizeSelect.value;
+      const price = priceMap[size];
+      alert(`You selected ${type} frame of size ${size}. Price: ₹${price}`);
+    });
+
+    // Set default values in inquiry form on page load
+    document.getElementById("selectedFrameType").value = frameTypeSelect.value;
+    document.getElementById("selectedFrameSize").value = frameSizeSelect.value;
+  </script>
 
   <section class="location">
     <h3>Visit Us</h3>
@@ -82,4 +117,3 @@
   </footer>
 </body>
 </html>
-
