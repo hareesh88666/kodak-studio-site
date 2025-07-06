@@ -1,3 +1,4 @@
+/* Base Styles */
 body {
   margin: 0;
   font-family: Arial, sans-serif;
@@ -6,28 +7,30 @@ body {
   line-height: 1.6;
 }
 
+/* Header */
 header {
   background: #000;
   padding: 2rem;
   text-align: center;
   border-bottom: 2px solid gold;
 }
-
 header h1 {
   margin: 0;
   font-size: 2.5rem;
 }
-
 header p {
   font-size: 1.2rem;
   color: #ccc;
 }
 
+/* Sections */
 .about,
 .location,
 .inquiry-form,
 .frame-selector,
-.gallery {
+.gallery,
+.testimonials,
+.pricing-table {
   padding: 2rem;
   background: #1a1a1a;
   margin: 1rem;
@@ -35,21 +38,13 @@ header p {
   box-shadow: 0 0 10px #333;
 }
 
-footer {
-  text-align: center;
-  padding: 1rem;
-  background: #000;
-  color: #aaa;
-  font-size: 0.9rem;
-}
-
+/* Forms */
 .frame-selector form,
 .inquiry-form form {
   display: flex;
   flex-direction: column;
   gap: 1rem;
 }
-
 .frame-selector label,
 .frame-selector select,
 .frame-selector .price-display,
@@ -60,7 +55,6 @@ footer {
 .inquiry-form button {
   font-size: 1rem;
 }
-
 .frame-selector button,
 .inquiry-form button {
   padding: 0.6rem;
@@ -71,12 +65,10 @@ footer {
   cursor: pointer;
   border-radius: 6px;
 }
-
 .frame-selector button:hover,
 .inquiry-form button:hover {
   background: #ffd700;
 }
-
 .inquiry-form input,
 .inquiry-form textarea {
   padding: 0.5rem;
@@ -86,35 +78,27 @@ footer {
   color: #fff;
 }
 
-/* ✅ Gallery Styles */
+/* Gallery */
 .gallery {
   text-align: center;
 }
-
-.gallery h2 {
-  color: gold;
-  margin-bottom: 1rem;
-}
-
 .gallery-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
   gap: 1rem;
   margin-top: 1rem;
 }
-
 .gallery-grid img {
   width: 100%;
   border-radius: 8px;
   cursor: pointer;
   transition: transform 0.3s ease;
 }
-
 .gallery-grid img:hover {
   transform: scale(1.05);
 }
 
-/* ✅ Lightbox Styles */
+/* Lightbox */
 .lightbox {
   position: fixed;
   top: 0;
@@ -127,60 +111,21 @@ footer {
   align-items: center;
   z-index: 999;
 }
-
 .lightbox.active {
   display: flex;
 }
-
 .lightbox img {
   max-width: 90%;
   max-height: 90%;
   border: 4px solid gold;
   border-radius: 12px;
 }
-.pricing-table {
-  padding: 2rem;
-  background: #1a1a1a;
-  margin: 1rem;
-  border-radius: 12px;
-  box-shadow: 0 0 10px #333;
-}
 
-.pricing-table table {
-  width: 100%;
-  border-collapse: collapse;
-  color: gold;
-}
-
-.pricing-table th,
-.pricing-table td {
-  padding: 1rem;
-  border: 1px solid #444;
-  text-align: left;
-}
-
-.pricing-table th {
-  background-color: #000;
-  color: #fff;
-}
-
-.pricing-table tr:nth-child(even) {
-  background-color: #222;
-}
-.testimonials {
-  padding: 2rem;
-  background: #1a1a1a;
-  margin: 1rem;
-  border-radius: 12px;
-  box-shadow: 0 0 10px #333;
-  text-align: center;
-}
-
+/* Testimonials */
 .testimonials h2 {
   color: gold;
   margin-bottom: 1.5rem;
 }
-
 .testimonial-card {
   background: #222;
   color: #eee;
@@ -189,14 +134,33 @@ footer {
   border-radius: 10px;
   border-left: 4px solid gold;
 }
-
 .testimonial-card h4 {
   margin-top: 0.5rem;
   color: #ccc;
   font-style: italic;
 }
 
-/* ✅ WhatsApp Button Style */
+/* Pricing Table */
+.pricing-table table {
+  width: 100%;
+  border-collapse: collapse;
+  color: gold;
+}
+.pricing-table th,
+.pricing-table td {
+  padding: 1rem;
+  border: 1px solid #444;
+  text-align: left;
+}
+.pricing-table th {
+  background-color: #000;
+  color: #fff;
+}
+.pricing-table tr:nth-child(even) {
+  background-color: #222;
+}
+
+/* WhatsApp Floating Button */
 .whatsapp-float {
   position: fixed;
   bottom: 20px;
@@ -205,7 +169,6 @@ footer {
   width: 60px;
   height: 60px;
 }
-
 .whatsapp-float img {
   width: 100%;
   height: 100%;
@@ -214,62 +177,10 @@ footer {
   box-shadow: 0 0 10px gold;
   transition: transform 0.3s ease;
 }
-
 .whatsapp-float img:hover {
   transform: scale(1.1);
 }
-/* Sticky Navbar */
-.navbar {
-  position: sticky;
-  top: 0;
-  z-index: 999;
-  background-color: #000;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1rem 2rem;
-  border-bottom: 2px solid gold;
-}
 
-.nav-logo {
-  font-size: 1.5rem;
-  color: gold;
-  font-weight: bold;
-}
-
-.nav-links {
-  list-style: none;
-  display: flex;
-  gap: 1.5rem;
-}
-
-.nav-links li a {
-  text-decoration: none;
-  color: #ccc;
-  font-weight: bold;
-  transition: color 0.3s ease;
-}
-
-.nav-links li a:hover {
-  color: gold;
-}
-
-/* Responsive (Optional) */
-@media (max-width: 768px) {
-  .nav-links {
-    flex-direction: column;
-    gap: 1rem;
-    background: #000;
-    position: absolute;
-    top: 100%;
-    right: 0;
-    padding: 1rem;
-    display: none;
-  }
-  .navbar.active .nav-links {
-    display: flex;
-  }
-}
 /* ✅ Navbar */
 .navbar {
   background: #000;
@@ -279,68 +190,58 @@ footer {
   top: 0;
   z-index: 999;
 }
-
 .nav-container {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
-
 .nav-logo {
   font-size: 1.5rem;
   font-weight: bold;
-}
-
-.nav-links {
-  display: flex;
-  list-style: none;
-  gap: 1rem;
-}
-
-.nav-links a {
   color: gold;
-  text-decoration: none;
-  font-weight: bold;
 }
-
 .menu-toggle {
   display: none;
   font-size: 2rem;
   cursor: pointer;
   color: gold;
 }
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 1rem;
+}
+.nav-links a {
+  color: gold;
+  text-decoration: none;
+  font-weight: bold;
+}
+.nav-links a:hover {
+  color: #ffd700;
+}
 
-/* ✅ Mobile Styles */
+/* ✅ Responsive Navbar */
 @media (max-width: 768px) {
-  .nav-links {
-    position: absolute;
-    top: 60px;
-    left: 0;
-    width: 100%;
-    background: #111;
-    flex-direction: column;
-    align-items: center;
-    display: none;
-    padding: 1rem 0;
-  }
-
-  .nav-links.active {
-    display: flex;
+  .nav-container {
+    flex-wrap: wrap;
+    justify-content: space-between;
   }
 
   .menu-toggle {
     display: block;
   }
-}
-.nav-container {
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  gap: 1rem;
-}
 
-.nav-logo {
-  font-size: 1.5rem;
-  font-weight: bold;
-  color: gold;
+  .nav-links {
+    width: 100%;
+    flex-direction: column;
+    display: none;
+    background: #111;
+    padding: 1rem 0;
+    margin-top: 1rem;
+    border-top: 1px solid gold;
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
 }
